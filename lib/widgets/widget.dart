@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
  Widget appBarMain(BuildContext context){
    return AppBar(
-  title: ,
+  title: Image.asset("assets/images/muleilogo.png"),
 
 
    );
