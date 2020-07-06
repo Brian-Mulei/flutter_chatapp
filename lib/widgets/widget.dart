@@ -32,6 +32,6 @@ import 'package:flutter/material.dart';
 TextStyle smalltext() {
   return TextStyle(
       color: Colors.white,
-      fontSize: 14
+      fontSize: 12
   );
 }
