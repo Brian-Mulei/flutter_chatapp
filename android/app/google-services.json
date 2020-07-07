@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "678416591336",
+    "firebase_url": "https://chatapp-d06c0.firebaseio.com",
+    "project_id": "chatapp-d06c0",
+    "storage_bucket": "chatapp-d06c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678416591336:android:11a66e7980230b08689c5d",
+        "android_client_info": {
+          "package_name": "com.mulei.flutter_chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "678416591336-tfho78ngkbpqrdtmqnm7efhcm678gi9b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxnicSn0GTXQQN4vWbNRvMlBzFTdZGq9E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "678416591336-tfho78ngkbpqrdtmqnm7efhcm678gi9b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
