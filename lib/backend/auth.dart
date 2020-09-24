@@ -40,7 +40,7 @@ Future resetpassword(String email) async{
     print(e.toString());
   }
 }
-Future signOut() async{
+Future signOut() async {
   try{
   return await auth.signOut();
   }catch(e){

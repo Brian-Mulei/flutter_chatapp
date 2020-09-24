@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chatapp/backend/auth.dart';
+import 'package:flutter_chatapp/views/chatroomscreen.dart';
 import 'package:flutter_chatapp/widgets/widget.dart';
 
+// ignore: camel_case_types
 class signup extends StatefulWidget {
+
+
+  final Function toggle;
+
+  const signup(void Function() toggleView, {Key key, this.toggle}) : super(key: key);
   @override
   _signupState createState() => _signupState();
 }
@@ -23,7 +30,11 @@ setState(() {
 });
 authenticate.signUpWithEmail(emailTextEdittingControllerr.text, 
     passwordTextEdittingControllerr.text).then((value) {
-print("$value");
+  print("$value");
+    Navigator.pushReplacement(context, MaterialPageRoute(
+        builder: (context)=>chatroom()
+    ));
+
 });
 
 }
@@ -134,11 +145,19 @@ print("$value");
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("Already have an account? ", style: smalltext()),
-                    Text("Log in now", style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 13,
-                        decoration: TextDecoration.underline
-                    )),
+                    GestureDetector(
+                      onTap: (){
+                        widget.toggle();
+                      },
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 8),
+                        child: Text("Log in now", style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 13,
+                            decoration: TextDecoration.underline
+                        )),
+                      ),
+                    ),
 
                   ],
                 ),
