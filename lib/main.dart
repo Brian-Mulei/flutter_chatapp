@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chatapp/helper/authenticate.dart';
+import 'package:flutter_chatapp/views/signup.dart';
 
 void main() {
   runApp(MyApp());

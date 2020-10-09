@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chatapp/widgets/widget.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class Signin extends StatefulWidget {
 

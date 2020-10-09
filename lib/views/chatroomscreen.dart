@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chatapp/helper/authenticate.dart';
+import 'package:flutter_chatapp/views/search.dart';
 
 
 class chatroom extends StatefulWidget {
@@ -11,7 +12,6 @@ class chatroom extends StatefulWidget {
 
 class _chatroomState extends State<chatroom> {
   final FirebaseAuth auth = FirebaseAuth.instance;
-
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +33,14 @@ class _chatroomState extends State<chatroom> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.search),
         onPressed: (){
-
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context)=>Searchscreen()
+        ));
         },
-        child: Icon(Icons.send),
+
+
       ),
 
 
