@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chatapp/backend/auth.dart';
 import 'package:flutter_chatapp/backend/database.dart';
+import 'package:flutter_chatapp/helper/helperfunction.dart';
 import 'package:flutter_chatapp/views/chatroomscreen.dart';
 import 'package:flutter_chatapp/widgets/widget.dart';
 
@@ -33,6 +34,9 @@ if(formKey.currentState.validate()){
     "name" : userNameTextEdittingControllerr.text,
     "email" : emailTextEdittingControllerr.text
   };
+
+HelperFunctions.saveUserEmailLoggedInSharedPreference(emailTextEdittingControllerr.text);
+HelperFunctions.saveUserNameSharedPreference(userNameTextEdittingControllerr.text);
 setState(() {
   isLoading=true;
 });
@@ -43,7 +47,9 @@ authenticate.signUpWithEmail(emailTextEdittingControllerr.text,
 
 
 databaseMethods.uploadUserInfo(userMap);
-Navigator.pushReplacement(context, MaterialPageRoute(
+  HelperFunctions.saveUserLoggedInSharedPreference(true);
+
+  Navigator.pushReplacement(context, MaterialPageRoute(
         builder: (context)=>chatroom()
     ));
 
