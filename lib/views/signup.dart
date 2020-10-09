@@ -10,7 +10,7 @@ class signup extends StatefulWidget {
 
   final Function toggle;
 
-  const signup(void Function() toggleView, {Key key, this.toggle}) : super(key: key);
+  signup( this.toggle );
   @override
   _signupState createState() => _signupState();
 }

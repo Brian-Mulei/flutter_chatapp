@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_chatapp/backend/database.dart';
 import 'package:flutter_chatapp/widgets/widget.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class Signin extends StatefulWidget {
 
-  final Function toggle;
+     final Function toggle;
 
-  const Signin(void Function() toggleView, {Key key, this.toggle}) : super(key: key);
+   Signin( this.toggle);
 
 
   @override
