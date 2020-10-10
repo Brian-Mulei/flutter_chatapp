@@ -131,7 +131,8 @@ Widget searchlist(){
                                 const Color(0x36FFFFFF),
                                 const Color(0x0FFFFFFF)
  ]
-                          )
+                          ),
+                            borderRadius: BorderRadius.circular(40)
                         ),
                         padding:EdgeInsets.all(12),
                         child: Image.asset("assets/images/search.png")
