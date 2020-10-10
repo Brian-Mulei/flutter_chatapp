@@ -33,6 +33,9 @@ class _SearchscreenState extends State<Searchscreen> {
           Spacer(),
           GestureDetector(
             onTap: () {
+              createChatRoom(
+              userName:userName
+                  );
 
             },
             child: Container(
@@ -59,7 +62,7 @@ class _SearchscreenState extends State<Searchscreen> {
     });
   }
 
-  createChatRoom(String userName) {
+  createChatRoom({String userName}) {
     if(userName !=Constants.myName){
     String chatRoomId = getChatRoomId(userName, Constants.myName);
 
