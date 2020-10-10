@@ -35,15 +35,15 @@ createChatLobby(String charRoomId,chatRoomMap){
      print(e.toString());
    });
  }
-   getConversation(String chatRoomId ){
-    return Firestore.instance.collection("Chatroom")
+   getConversation(String chatRoomId ) async {
+    return  await Firestore.instance.collection("Chatroom")
          .document(chatRoomId)
          .collection("chats")
     .orderBy("time",descending: false)
          .snapshots();
    }
-  getChatRoom(String username){
-    return Firestore.instance.collection("Chatroom")
+  getChatRoom(String username) async{
+    return await Firestore.instance.collection("Chatroom")
         .where("users", arrayContains: username).snapshots();
 
 
