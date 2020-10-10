@@ -41,6 +41,11 @@ createChatLobby(String charRoomId,chatRoomMap){
          .collection("chats")
     .orderBy("time",descending: false)
          .snapshots();
-
    }
+  getChatRoom(String username){
+    return Firestore.instance.collection("Chatroom")
+        .where("users", arrayContains: username).snapshots();
+
+
+  }
 }
