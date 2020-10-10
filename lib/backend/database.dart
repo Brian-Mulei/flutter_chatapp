@@ -27,7 +27,7 @@ createChatLobby(String charRoomId,chatRoomMap){
     });
 }
 
- getConversation(String chatRoomId, messageMap ){
+ addConversation(String chatRoomId, messageMap ) {
    Firestore.instance.collection("Chatroom")
        .document(chatRoomId).collection("chats")
        .add(messageMap)
@@ -35,4 +35,12 @@ createChatLobby(String charRoomId,chatRoomMap){
      print(e.toString());
    });
  }
+   getConversation(String chatRoomId ){
+    return Firestore.instance.collection("Chatroom")
+         .document(chatRoomId)
+         .collection("chats")
+    .orderBy("time",descending: false)
+         .snapshots();
+
+   }
 }

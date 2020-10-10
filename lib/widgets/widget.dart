@@ -23,12 +23,18 @@ import 'package:flutter/material.dart';
    );
  }
 
- TextStyle textFieldstyle() {
-   return TextStyle(
-       color: Colors.white,
-       fontSize: 16
-   );
- }
+TextStyle textFieldstyle() {
+  return TextStyle(
+      color: Colors.white,
+      fontSize: 16
+  );
+} TextStyle mediumtextstyle() {
+  return TextStyle(
+      color: Colors.white,
+      fontSize: 17
+  );
+}
+
 TextStyle smalltext() {
   return TextStyle(
       color: Colors.white,
