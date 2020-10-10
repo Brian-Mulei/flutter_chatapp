@@ -73,7 +73,7 @@ class _SearchscreenState extends State<Searchscreen> {
     };
     databaseMethods.createChatLobby(chatRoomId, charRoomMap);
     Navigator.push(context, MaterialPageRoute(
-        builder: (context) => ConversationScreen()
+        builder: (context) => ConversationScreen(chatRoomId)
     ));
   }
 }

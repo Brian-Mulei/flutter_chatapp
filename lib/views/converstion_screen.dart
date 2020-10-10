@@ -1,16 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chatapp/backend/database.dart';
+import 'package:flutter_chatapp/helper/constants.dart';
 import 'package:flutter_chatapp/widgets/widget.dart';
 
 class ConversationScreen extends StatefulWidget {
+  final String chatRoomId;
+  ConversationScreen(this.chatRoomId);
   @override
   _ConversationScreenState createState() => _ConversationScreenState();
 }
 
 class _ConversationScreenState extends State<ConversationScreen> {
 
+  DatabaseMethods databaseMethods =new DatabaseMethods();
+  TextEditingController messageTextEditingController = new TextEditingController();
+
   Widget ChatMessageList(){
 
   }
+sendMessage(){
+    if(messageTextEditingController.text.isNotEmpty) {
+      Map<String, String>messageMap = {
+      "message":messageTextEditingController.text,
+      "sendBy"  :Constants.myName
+
+    };
+databaseMethods.getConversation(widget.chatRoomId, messageMap);
+}}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +44,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
                   children: [
                     Expanded(
                       child: TextField(
-                      //  controller: searchTextEditingController,
+                      controller: messageTextEditingController,
                         style: TextStyle(
                             color: Colors.white
                         ),
@@ -43,8 +60,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
                     ),
                     GestureDetector(
                       onTap: (){
-                     //   initiateSearch();
-
+                        sendMessage();
                       },
                       child: Container(
                           height: 40,

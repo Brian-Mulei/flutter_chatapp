@@ -26,4 +26,13 @@ createChatLobby(String charRoomId,chatRoomMap){
           print(e.toString());
     });
 }
+
+ getConversation(String chatRoomId, messageMap ){
+   Firestore.instance.collection("Chatroom")
+       .document(chatRoomId).collection("chats")
+       .add(messageMap)
+       .catchError((e) {
+     print(e.toString());
+   });
+ }
 }
