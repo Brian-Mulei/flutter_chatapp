@@ -4,6 +4,7 @@ import 'package:flutter_chatapp/backend/database.dart';
 import 'package:flutter_chatapp/helper/authenticate.dart';
 import 'package:flutter_chatapp/helper/constants.dart';
 import 'package:flutter_chatapp/helper/helperfunction.dart';
+import 'package:flutter_chatapp/views/converstion_screen.dart';
 import 'package:flutter_chatapp/views/search.dart';
 import 'package:flutter_chatapp/widgets/widget.dart';
 
@@ -30,8 +31,10 @@ class _chatroomState extends State<chatroom> {
               return chatRoomsTile(
                   snapshot.data.documents[index].data["chatroomId"]
                       .toString().replaceAll("_", "")
-                      .replaceAll(Constants.myName, "")
-                  );
+                      .replaceAll(Constants.myName, ""),
+                  snapshot.data.documents[index].data["chatroomId"]
+
+              );
             }): Container();
       },
     );
@@ -91,29 +94,38 @@ class _chatroomState extends State<chatroom> {
 
 class chatRoomsTile extends StatelessWidget {
   final String userName;
-
- chatRoomsTile(  this.userName);
+  final String chatRoomId;
+ chatRoomsTile(  this.userName,this.chatRoomId);
 
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 24,vertical: 16),
-      child: Row(
-        children: [
-          Container(
-            height: 40,
-            width: 40,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Colors.lightBlue,
-              borderRadius: BorderRadius.circular(40)
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(
+            builder: (context) => ConversationScreen(chatRoomId)
+
+        ));
+      },
+      child: Container(
+        color: Colors.black26,
+        padding: EdgeInsets.symmetric(horizontal: 24,vertical: 16),
+        child: Row(
+          children: [
+            Container(
+              height: 40,
+              width: 40,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Colors.lightBlue,
+                borderRadius: BorderRadius.circular(40)
+              ),
+              child: Text("${userName.substring(0,1).toUpperCase()}"),
             ),
-            child: Text("${userName.substring(0,1).toUpperCase()}"),
-          ),
-          SizedBox(width: 8,),
-          Text(userName,style: mediumtextstyle(),)
-        ],
+            SizedBox(width: 8,),
+            Text(userName,style: mediumtextstyle(),)
+          ],
+        ),
       ),
     );
   }

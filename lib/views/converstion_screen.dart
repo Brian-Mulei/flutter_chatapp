@@ -22,8 +22,10 @@ class _ConversationScreenState extends State<ConversationScreen> {
         builder: (context,snapshot){
           return snapshot.hasData ? ListView.builder(
               itemCount: snapshot.data.documents.length,
-              itemBuilder: (context,index){
-                return MessageBubble(snapshot.data.documents[index].data["message"],
+              itemBuilder: (context,index)
+              {
+                return MessageBubble(
+                    snapshot.data.documents[index].data["message"],
                     snapshot.data.documents[index].data["sendBy"]==Constants.myName);
               }): Container();
         },
@@ -39,13 +41,13 @@ sendMessage(){
 
     };
 databaseMethods.addConversation(widget.chatRoomId, messageMap);
+messageTextEditingController.text="";
 }}
 @override
   void initState() {
 databaseMethods.getConversation(widget.chatRoomId).then((val){
   setState(() {
-    chatStreams=val;
-  });
+    chatStreams=val;   });
 
 });
 super.initState();
