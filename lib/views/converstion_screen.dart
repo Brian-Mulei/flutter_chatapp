@@ -47,7 +47,8 @@ messageTextEditingController.text="";
   void initState() {
 databaseMethods.getConversation(widget.chatRoomId).then((val){
   setState(() {
-    chatStreams=val;   });
+    chatStreams=val;
+  });
 
 });
 super.initState();
@@ -92,7 +93,7 @@ super.initState();
                           width: 40,
                           decoration: BoxDecoration(
                               gradient: LinearGradient(
-                                  colors: [
+                                  colors:  [
                                     const Color(0x36FFFFFF),
                                     const Color(0x0FFFFFFF)
                                   ]
@@ -129,8 +130,12 @@ class MessageBubble extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 25,vertical: 8),
         decoration: BoxDecoration(
           gradient: LinearGradient(
-              colors: isSendByme ? [Colors.blue]
-                  :[ Colors.black26,]
+              colors: isSendByme ? [
+                Colors.blue,
+              Colors.blueAccent]
+                  :[ Colors.grey,
+                Colors.grey
+              ]
           ),
           borderRadius: isSendByme ?
           BorderRadius.only(

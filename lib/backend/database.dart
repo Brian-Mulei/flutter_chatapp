@@ -39,7 +39,7 @@ createChatLobby(String charRoomId,chatRoomMap){
     return  await Firestore.instance.collection("Chatroom")
          .document(chatRoomId)
          .collection("chats")
-    .orderBy("time",descending: false)
+    //.orderBy("time",descending: false)
          .snapshots();
    }
   getChatRoom(String username) async{
